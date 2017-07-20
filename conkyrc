@@ -1,0 +1,117 @@
+###### Conky settings ##################################################
+#
+# Original script: https://www.gnome-look.org/content/show.php/Conky+lua?content=139024
+# Updated to work with Conky 1.10
+# Patan90
+# 20/07/2017
+#
+########################################################################
+
+### General Settings ###################################################
+
+background yes
+update_interval 1
+cpu_avg_samples 2
+net_avg_samples 2
+default_color FFFFFF
+double_buffer yes
+text_buffer_size 2048
+border_inner_margin 0
+border_outer_margin 0
+minimum_size 200 250
+maximum_width 600
+
+
+### Graphs Settings ####################################################
+
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
+alignment tr
+gap_x 45
+gap_y 65
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+
+### Text settings #####################################################
+
+use_xft yes
+xftfont caviar dreams:size=8
+xftalpha 0.5
+override_utf8_locale yes
+uppercase no
+temperature_unit celsius
+
+
+### Color Settings ####################################################
+color1 FFFFFF
+color2 FFFFFF
+color3 FFFFFF
+color4 00FFFF
+color5 DCDCDC
+color5 0000FF
+color6 00FF00
+color7 FF0000
+color8 339900
+
+
+### LUA Scripts #######################################################
+lua_load ~/.conky/clock_rings.lua
+lua_draw_hook_pre clock_rings
+
+
+#######################################################################
+##
+## CONKY CODE #########################################################
+##
+#######################################################################
+
+TEXT
+${voffset 185}
+
+#######################################################################
+## CPU
+#######################################################################
+${color8}
+${voffset 5}${font Ubuntu:size=14:bold}CPUs${font}
+-----------------------------------------------------------
+#AVG${cpugraph cpu0 25,250 FFFFFF FF0000 -t}
+CPU1${cpugraph cpu1 25,260 FFFFFF FF0000 -t}
+CPU2${cpugraph cpu2 25,260 FFFFFF FF0000 -t}
+CPU3${cpugraph cpu3 25,260 FFFFFF FF0000 -t}
+CPU4${cpugraph cpu4 25,260 FFFFFF FF0000 -t}
+#######################################################################
+## MEMORY
+#######################################################################
+${color8}
+${voffset 5}${font Ubuntu:size=14:bold}MEMORY${font}
+-----------------------------------------------------------
+${font Ubuntu:size=10:bold}${color5}${color2}${mem} / ${memmax} [ ${memperc}% in use ]
+${memgraph 20,300 FFFFFF FF0000 -t}
+#######################################################################
+## NETWORKING
+#######################################################################
+${color8}
+${font Ubuntu:size=14:bold}NETWORKING${font}
+-----------------------------------------------------------
+${font Ubuntu:size=11:bold}${color5}${color2}${addr wlp3s0}
+${font Ubuntu:size=11:bold}
+${downspeedgraph wlp3s0 40,140 FFFFFF FFFFFF }${goto 150}${upspeedgraph wlp3s0 40,140 FFFFFF FFFFFF }
+${color1}Down: ${color2}${downspeed wlp3s0}${goto 150}Up: ${color1}${upspeed wlp3s0}
+${color1}[${totaldown wlp3s0}]${goto 150}${color2}[${totalup wlp3s0}]
+#######################################################################
+## SYSTEM INFO
+#######################################################################
+${color8}
+${font Ubuntu:size=14:bold}SYSTEM INFO${font}
+-----------------------------------------------------------
+${color FFFFFF}${font Ubuntu:size=12}Uptime:${goto 110}${uptime_short}
+${color FFFFFF}${font Ubuntu:size=12}Processes:${goto 110}${processes}
+${color FFFFFF}${font Ubuntu:size=12}Running:${goto 110}${running_processes}
+${color 339900}${font Ubuntu:size=12:bold}${alignr}${nodename}
+${color 339900}${font Ubuntu:size=12:bold}${alignr}${exec cat /etc/issue.net}  $machine
+${color 339900}${font Ubuntu:size=12:bold}${alignr}Kernel: ${kernel}
