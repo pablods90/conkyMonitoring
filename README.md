@@ -30,7 +30,7 @@ This packages are suggested if you want to have wider monitoring options (suchs 
 
 ## Screenshoots
 
-![alt text](https://raw.githubusercontent.com/pablods90/conkyLuaReloaded/master/Background200717.png)
-![alt text](https://raw.githubusercontent.com/pablods90/conkyLuaReloaded/master/Screenshot%2020170720.png)
+![alt text](https://raw.githubusercontent.com/pablods90/conkyMonitoring/master/Screenshot%2020170720a.png)
+![alt text](https://raw.githubusercontent.com/pablods90/conkyMonitoring/master/Screenshot%2020170720b.png)
 
 
