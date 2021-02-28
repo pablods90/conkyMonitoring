@@ -1,9 +1,8 @@
 ###### Conky settings ##################################################
 #
 # Original script: https://www.gnome-look.org/content/show.php/Conky+lua?content=139024
-# Updated to work with Conky 1.10
-# Patan90
-# 20/07/2017
+# Updated to work with Conky 1.10.8
+# 27/02/2021
 #
 ########################################################################
 
@@ -16,8 +15,8 @@ net_avg_samples 2
 default_color FFFFFF
 double_buffer yes
 text_buffer_size 2048
-border_inner_margin 0
-border_outer_margin 0
+border_inner_margin 5
+border_outer_margin 5
 minimum_size 200 250
 maximum_width 600
 
@@ -26,7 +25,9 @@ maximum_width 600
 
 own_window yes
 own_window_type desktop
-own_window_transparent yes
+own_window_transparent no
+own_window_argb_visual yes
+own_window_argb_value 150
 own_window_hints undecorated,sticky,skip_taskbar,skip_pager,below
 alignment tr
 gap_x 45
@@ -56,7 +57,7 @@ color5 DCDCDC
 color5 0000FF
 color6 00FF00
 color7 FF0000
-color8 339900
+color8 db3a24
 
 
 ### LUA Scripts #######################################################
@@ -112,6 +113,6 @@ ${font Ubuntu:size=14:bold}SYSTEM INFO${font}
 ${color FFFFFF}${font Ubuntu:size=12}Uptime:${goto 110}${uptime_short}
 ${color FFFFFF}${font Ubuntu:size=12}Processes:${goto 110}${processes}
 ${color FFFFFF}${font Ubuntu:size=12}Running:${goto 110}${running_processes}
-${color 339900}${font Ubuntu:size=12:bold}${alignr}${nodename}
-${color 339900}${font Ubuntu:size=12:bold}${alignr}${exec cat /etc/issue.net}  $machine
-${color 339900}${font Ubuntu:size=12:bold}${alignr}Kernel: ${kernel}
+${color db3a24}${font Ubuntu:size=12:bold}${alignr}${nodename}
+${color db3a24}${font Ubuntu:size=12:bold}${alignr}${exec cat /etc/issue.net}  $machine
+${color db3a24}${font Ubuntu:size=12:bold}${alignr}Kernel: ${kernel}
